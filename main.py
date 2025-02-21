@@ -1,4 +1,4 @@
-from plugins.scrapp.scrapp import run
+from plugins.scrap.scrap import run
 
 url = "https://www.padelfip.com/es/calendario-premier-padel/?events-year="
 gender = "male" #MEN or WOMEN#
