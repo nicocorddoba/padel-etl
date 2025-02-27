@@ -1,0 +1,5 @@
+services:
+  myapp:
+    image: ${PYTHON_IMAGE_NAME:-python-image}
+    volumes:
+      - ./output:/app/output

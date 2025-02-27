@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright, Playwright, Page
 import re
 import datetime
+from tqdm import trange
 
 # url = "https://www.padelfip.com/es/calendario-premier-padel/?events-year=2024"
 
@@ -48,14 +49,14 @@ def tournament_details(page: Page, tournament_dict:dict, gender_arg:str):
     days = "".join(re.findall(pattern_days, src))
     new_link = src[:-len(days + '?t=tol')]
     
-    for k in range(int(days)):
+    for k in trange(int(days)):
         number_page = k+1
         date = date_start + datetime.timedelta(days=k)
         page.goto(new_link + f"{number_page}?t=tol")
         page.wait_for_selector("div#container")
         game_div = page.locator("div.col-12.p-0")
         
-        for j in range(game_div.count()):
+        for j in trange(game_div.count()):
             game = game_div.nth(j)
             score_box = game.locator("tr.scorebox-header-completed")
             round_name_div = score_box.locator("div.round-name.text-right")
@@ -121,7 +122,7 @@ def scrap_padel_data(page: Page, url: str, gender_arg: str):
     events = events_section.locator("div.event-container")
     list_events = []
 
-    for i in range(events.count()):
+    for i in trange(events.count()):
         # page.goto(url)
         tournament = events.nth(i)
         link = tournament.locator("div.event-title").locator("a").get_attribute("href")
@@ -134,7 +135,7 @@ def scrap_padel_data(page: Page, url: str, gender_arg: str):
             "date_start": date.split(' ')[1],
             "location": location}
         list_events.append(tournament_dict)
-    for i in range(len(list_events)):
+    for i in trange(len(list_events)):
         # tournament_dict = list_events[i
         tournament_dict = list_events[i]
         match_list = tournament_details(page, tournament_dict, gender_arg)
@@ -150,4 +151,4 @@ def run(url: str, gender_arg: str):
         # page.goto("http://example.com")
         list_events = scrap_padel_data(page, url, gender_arg)
         browser.close()
-        return list_events
+    return list_events
