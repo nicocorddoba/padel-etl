@@ -1,5 +1,6 @@
 # padelfip-scrap
 Scrap de torneos de padel en la pagina padelfip.com
 
-pip install -r requirements.txt
-playwright install
+Docker:
+Build image with: "docker build -t padel-scrap ."
+run app with: "docker compose up"
