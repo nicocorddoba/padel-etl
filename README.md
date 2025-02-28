@@ -1,5 +1,5 @@
-# padelfip-scrap
-Scrap de torneos de padel en la pagina padelfip.com
+# padelfip-ETL
+Scrap de torneos de padel de la pagina padelfip.com, transformación de datos con Pyspark
 
 ## Docker:
 Build image with: "docker build -t padel-scrap ."
