@@ -1,5 +1,5 @@
 services:
   myapp:
-    image: ${PYTHON_IMAGE_NAME:-python-image}
+    image: ${PYTHON_IMAGE_NAME:-padel-scrap}
     volumes:
       - ./output:/app/output
