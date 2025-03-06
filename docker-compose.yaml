@@ -2,4 +2,5 @@ services:
   myapp:
     image: ${PYTHON_IMAGE_NAME:-padel-scrap}
     volumes:
-      - ./output:/app/output
+      - ./output_scrap:/app/output_scrap
+      - ./output_transform:/app/output_transform
