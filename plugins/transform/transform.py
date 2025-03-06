@@ -2,7 +2,6 @@ import pandas as pd
 import json
 import re
 
-
 def extract_data(path: str) -> list[dict]:
     try: 
         with open (path, encoding='utf-8') as f:
@@ -89,8 +88,7 @@ def transform(path: str):
     df_matches_cleaned = df_matches.apply(axis=1, func=clean_matches_df)
     df_final_round = df_matches_cleaned.copy()[df_matches_cleaned['round_name'] == 'Final']
     df_final_round['winner'] = df_final_round.loc[:,'winner'].map(lambda x: ', '.join(x))
-    wins_count = df_final_round.groupby('winner')['winner'].count()
-
+    wins_count = df_final_round.groupby('winner')['winner'].count().reset_index(name='counts')
     
     prizes_df = pd.concat(df_matches_cleaned.apply(axis=1, func=prizes_calc).dropna().to_list(), ignore_index=True)
     prizes_sum = prizes_df.groupby('player').sum('prize').sort_values(by= 'prize',ascending=False)
