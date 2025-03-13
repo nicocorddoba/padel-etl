@@ -53,5 +53,5 @@ El análisis de los datos se puede visualizar en el dashboard de Looker Studio, 
 https://lookerstudio.google.com/reporting/d3e5094e-a2ad-495e-b9f4-aaf65b3e73e9
 
 ## Contribuciones
-Si deseas contribuir a este proyecto, siéntete libre de hacer un fork y enviar un pull request.
+Si deseas contribuir a este proyecto, siéntete libre de hacer un fork.
 
