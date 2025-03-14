@@ -26,7 +26,7 @@ El desarrollo del proyecto está realizado en **Python**, utilizando las siguien
 ### Requisitos previos
 Asegúrate de tener:
 - Instalado Python 3.9+
-- Acceso a una base de datos PostgreSQL
+- Acceso a una base de datos PostgreSQL configurada
 - Dependencias del proyecto (indicadas en `requirements.txt`)
 
 ### Instalación
@@ -47,6 +47,19 @@ Ejecuta el proceso ETL con:
 $ python main.py
 ```
 Esto iniciará la extracción, transformación y carga de los datos en la base de datos PostgreSQL.
+
+## Usando Docker
+Construir la imagen de Docker:
+
+```bash
+docker build -t padel-scrap .
+```
+Iniciar la aplicación con Docker Compose:
+
+```bash
+$ docker-compose up
+```
+Este comando levantará el entorno necesario para ejecutar el script ETL y la ejecutará.
 
 ## Dashboard en Looker Studio
 El análisis de los datos se puede visualizar en el dashboard de Looker Studio, donde se presentan los KPIs y gráficos relevantes sobre los torneos de PREMIER PADEL 2024.
