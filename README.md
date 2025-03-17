@@ -1,4 +1,5 @@
 # Proyecto ETL - PREMIER PADEL 2024
+![image](https://github.com/user-attachments/assets/92b6ff0c-15b7-4816-87e0-169e70b57313)
 
 ## Descripción
 Este proyecto ETL (Extracción, Transformación y Carga) tiene como objetivo recopilar y analizar datos de los torneos de PREMIER PADEL 2024. Los datos extraídos permiten realizar un análisis en Looker Studio sobre:
